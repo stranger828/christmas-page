@@ -13,7 +13,7 @@ A simple Christmas-themed web page featuring:
 - **Responsive Design**: Adjusts seamlessly to different screen sizes.
 
 ## How to View the Page
-Visit the live page here: [Christmas Page](https://<stranger828>.github.io/<christmas-page>/)
+Visit the live page here: [Christmas Page](https://stranger828.github.io/christmas-page/)
 
 ## Files Included
 - `index.html`: Main HTML file.
