@@ -4,13 +4,17 @@ body {
     color: white;
     text-align: center;
     display: flex;
-    /* Added for centering */
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    /* Changed from center to avoid clipping top content */
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    /* Changed from height to min-height */
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-    overflow: hidden;
+    overflow-x: hidden;
+    /* Check horizontal overflow only */
+    overflow-y: auto;
+    /* Allow vertical scrolling */
     /* filter: drop-shadow(0 0 10px white); Removed potentially problematic filter on body */
 }
 
@@ -25,18 +29,22 @@ body {
     align-items: center;
     gap: 20px;
     /* 요소 간 간격 */
-    padding: 10px;
-    height: 100%;
-    /* Ensure container takes height if needed, though body overflow hidden handles main layout */
+    padding: 20px 10px;
+    /* Increased padding */
+    height: auto;
+    /* Allow height to grow */
     z-index: 10;
     /* Ensure content is above snow */
     position: relative;
+    /* overflow: hidden; Removed to prevent clipping */
 }
 
 h1 {
     font-size: clamp(1.5em, 5vw, 3em);
     /* 최소 1.5em, 최대 3em, 화면 너비의 5% */
     margin-bottom: 20px;
+    margin-top: 40px;
+    /* Add some top space */
     position: relative;
     z-index: 10;
     /* 이미지보다 위에 위치 */
@@ -71,11 +79,14 @@ button {
 
 audio {
     margin-top: 20px;
+    margin-bottom: 40px;
+    /* Ensure space at bottom */
 }
 
 /* Base snow style */
 .snow {
-    position: absolute;
+    position: fixed;
+    /* Changed to fixed so it stays on screen while scrolling */
     width: 10px;
     height: 10px;
     background: white;
@@ -83,4 +94,6 @@ audio {
     top: 0;
     /* Starts at top, animation controls position */
     left: 0;
+    pointer-events: none;
+    /* Ensure snow doesn't block clicks */
 }
